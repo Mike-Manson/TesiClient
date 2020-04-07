@@ -1,0 +1,20 @@
+.grid-layout {
+  display: grid;
+  grid-template-columns: 4rem 1fr 2rem;
+  grid-template-rows: 1rem 1fr 1rem;
+  grid-gap: 1rem 2rem;
+  grid-template-areas: "navbar . ."
+                        "navbar content ."
+                        "navbar . .";
+}
+
+.navbar {
+  grid-area: navbar;
+  background-color: black;
+}
+
+.content {
+  grid-area: content;
+  border: 1px solid grey;
+}
+

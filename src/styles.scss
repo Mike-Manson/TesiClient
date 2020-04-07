@@ -1,0 +1,28 @@
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+@import "./app/ui/_variables";
+@import "./app/ui/mixin";
+@import "./app/ui/_utils";
+
+.ag-theme-alpine {
+    @include ag-theme-alpine();
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.nav-icon {
+  width: 4rem;
+  height: 4rem;
+}

@@ -1,0 +1,66 @@
+
+@mixin box-shadow($property) {
+  -webkit-box-shadow: $property;
+  -moz-box-shadow: $property;
+  box-shadow: $property;
+}
+
+@mixin transition($property) {
+  transition: $property;
+  -webkit-transition: $property;
+  -o-transition: $property;
+  -moz-transition: $property;
+}
+
+ @mixin multiline-ellipsis($property) {
+  display: -webkit-box;
+  -webkit-line-clamp: $property;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+ }
+
+ @mixin small-screen {
+   @media screen and (max-width: 1024px){
+     @content;
+   }
+ }
+
+ @mixin medium-screen {
+   @media screen and (min-width: 1025px) and (max-width: 1600px) {
+     @content;
+   }
+ }
+
+ @mixin large-screen {
+   @media screen and (min-width: 1601px) {
+     @content;
+   }
+ }
+
+ @mixin page-padding {
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem;
+
+  @include medium-screen {
+    grid-template-columns: 2rem 1fr 2rem;
+  }
+
+  @include large-screen {
+    grid-template-columns: 2rem 1fr 2rem;
+  }
+}
+
+@mixin dynamic-page-padding {
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem;
+
+  @include medium-screen {
+    grid-template-columns: 2rem 1fr 2rem;
+  }
+
+  @include large-screen {
+    grid-template-columns: minmax(2rem, 1fr) minmax(auto, calc(1600px - 4rem)) minmax(2rem, 1fr);
+  }
+}
