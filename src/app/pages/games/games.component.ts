@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TableDto } from 'src/app/table/table';
+import { TableDto } from 'src/app/components/table/table';
 
 @Component({
   selector: 'app-games',
@@ -15,7 +15,7 @@ export class GamesComponent implements OnInit {
         field: 'title'
       },
       {
-        headerName: 'desctiption',
+        headerName: 'description',
         field: 'description'
       }
     ],
@@ -23,15 +23,15 @@ export class GamesComponent implements OnInit {
 
       {
         title: 'title 1',
-        desctiption: 'desctiption 1'
+        description: 'description 1'
       },
       {
         title: 'title 2',
-        desctiption: 'desctiption 2'
+        description: 'description 2'
       },
       {
         title: 'title 3',
-        desctiption: 'desctiption 3'
+        description: 'description 3'
       },
     ]
   }

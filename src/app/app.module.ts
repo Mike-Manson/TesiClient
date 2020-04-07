@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationBarModule } from './navigation-bar/navigation-bar.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavigationBarModule } from './components/navigation-bar/navigation-bar.module';
+import { GamesModule } from './pages/games/games.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     NavigationBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GamesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
