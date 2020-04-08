@@ -43,7 +43,7 @@ export class GamesComponent implements OnInit {
   }
 
   navTo() {
-    this.router.navigate['game-form'];
+    this.router.navigate(['games', 'game-form']);
   }
 
 }
