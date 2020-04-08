@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableDto } from 'src/app/components/table/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -36,9 +37,13 @@ export class GamesComponent implements OnInit {
     ]
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navTo() {
+    this.router.navigate['game-form'];
   }
 
 }
