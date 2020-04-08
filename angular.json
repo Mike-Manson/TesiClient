@@ -130,5 +130,10 @@
   "defaultProject": "tesiProject",
   "cli": {
     "analytics": "a6a5bd77-e9e5-4c25-ae8a-b58a9f64f252"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }
