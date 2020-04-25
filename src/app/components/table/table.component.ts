@@ -17,4 +17,14 @@ export class TableComponent implements OnInit {
 
   }
 
+  onFirstDataRendered(params) {
+    params.api.sizeColumnsToFit();
+  }
+
+  rowClicked(e) {
+    if (this.datasource.rowClicked) {
+      this.datasource.rowClicked(e);
+    }
+  }
+
 }

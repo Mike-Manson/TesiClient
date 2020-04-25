@@ -1,7 +1,8 @@
 <ag-grid-angular
-    class="ag-theme-alpine"
-    style="width: 100%; height: 100%;"
+    class="ag-theme-alpine size-100"
     [rowData]="datasource.rowData"
     [columnDefs]="datasource.columnDefs"
+    (firstDataRendered)="onFirstDataRendered($event)"
+    (rowClicked)="rowClicked($event)"
     >
 </ag-grid-angular>
