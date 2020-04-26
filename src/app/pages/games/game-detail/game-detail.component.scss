@@ -1,0 +1,109 @@
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+.page-content {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.title-name {
+  font-size: 1.125rem;
+  font-weight: bolder;
+  margin-bottom: .5rem;
+}
+
+.variable-name {
+  font-size: 1rem;
+  font-weight: bolder;
+  margin-bottom: .5rem;
+}
+
+.game-detail-grid {
+  display: grid;
+  grid-template-columns: fit-content(30%) 1fr;
+  grid-gap: 2rem;
+  grid-template-areas: "img-area detail-area";
+}
+
+.img-area {
+  grid-area: img-area;
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  grid-template-areas:"img img"
+                      "pegi-area pegi-area";
+}
+
+.img-class {
+  grid-area: img;
+}
+
+.pegi-area {
+  grid-area: pegi-area;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-gap: 1rem;
+  grid-template-areas: "pegi-class ."
+                        "descriptors-class descriptors-class"
+                        "platform-class platform-class"
+                        "authors-class authors-class";
+}
+
+.pegi-class {
+  grid-area: pegi-class;
+  height: 7rem;
+}
+
+.descriptors-class {
+  grid-area: descriptors-class;
+  width: 100%;
+
+  img {
+    width: 4rem;
+    height: 4rem;
+    padding-right: 1rem;
+  }
+}
+
+.platform-class {
+  grid-area: platform-class;
+}
+
+.authors-class {
+  grid-area: authors-class;
+}
+
+
+.detail-area {
+  grid-area: detail-area;
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  grid-template-areas:
+  "game-area"
+  "purpose-area"
+  "category"
+  "description";
+}
+
+.purpose-area {
+  grid-area: purpose-area;
+}
+
+.game-area {
+  grid-area: game-area;
+}
+
+.category-class {
+  grid-area: category;
+}
+
+.description-class {
+  grid-area: description;
+}
+
+

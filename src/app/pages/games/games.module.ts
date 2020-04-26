@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { GamesComponent } from './games.component';
 import { TableModule } from 'src/app/components/table/table.module';
 import { GameFormComponent } from './game-form/game-form.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 @NgModule({
   declarations: [
     GamesComponent,
-    GameFormComponent
+    GameFormComponent,
+    GameDetailComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { GameFormComponent } from './game-form/game-form.component';
   exports: [
     GamesComponent,
     TableModule,
-    GameFormComponent
+    GameFormComponent,
+    GameDetailComponent
   ]
 })
 export class GamesModule { }

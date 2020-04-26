@@ -1,3 +1,247 @@
-<p>
-  game-detail works!
-</p>
+<div class="size-100 h-align-center">
+  <div class="page-content">
+    <div class="d-flex pb-2">
+      <span class="page-title">{{ selectedGame.name }}</span>
+    </div>
+    <div class="size-100 game-detail-grid">
+      <div class="img-area size-100">
+        <img class="img-class w-100" [src]="selectedGame.img" />
+        <div class="pegi-area w-100">
+          <img class="pegi-class" [src]="selectedPegi()" />
+          <div class="descriptors-class">
+            <img
+              *ngFor="let d of selectedGame.pegiDescriptors"
+              [src]="selectedPegiDescriptor(d)"
+            />
+          </div>
+          <div
+            *ngIf="selectedGame.authors && selectedGame.authors.length > 0"
+            class="authors-class d-flex-column"
+          >
+            <span class="variable-name">Authors</span>
+            <span *ngFor="let author of selectedGame.authors">
+              {{ author.fullName }}
+            </span>
+          </div>
+
+          <div
+            *ngIf="selectedGame.platform"
+            class="platform-class d-flex-column"
+          >
+            <span class="variable-name">Platform</span>
+            <span>{{ selectedGame.platform }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="detail-area">
+
+        <div
+          *ngIf="selectedGame.category"
+          class="game-area d-flex-column border-bottom pb-2 mb-3"
+        >
+
+          <div class="d-flex">
+            <div
+              *ngIf="selectedGame.gameplay"
+              class="gameplay-class d-flex-column flex-grow"
+            >
+              <span class="variable-name">Gameplay</span>
+              <span>{{ selectedGame.gameplay }}</span>
+            </div>
+
+            <div
+              *ngIf="selectedGame.audience"
+              class="audience-class d-flex-column flex-grow"
+            >
+              <span class="variable-name">Audience</span>
+              <span>{{ selectedGame.audience }}</span>
+            </div>
+
+            <div
+              *ngIf="selectedGame.scope"
+              class="scope-class d-flex-column flex-grow"
+            >
+              <span class="variable-name">Scope</span>
+              <span>{{ selectedGame.scope }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="
+            selectedGame.purpose &&
+            selectedGame.purpose.dataExchange &&
+            selectedGame.purpose.messageBroadcasting &&
+            selectedGame.purpose.training
+          "
+          class="purpose-area d-flex-column border-bottom pb-2 mb-3"
+        >
+          <span class="title-name pb-2">Purpose</span>
+          <div class="d-flex">
+            <div
+              *ngIf="selectedGame.purpose.dataExchange"
+              class="d-flex-column flex-grow"
+            >
+              <span class="variable-name">Data Exchange</span>
+              <span>{{ selectedGame.purpose.dataExchange }}</span>
+            </div>
+
+            <div
+              *ngIf="selectedGame.purpose.messageBroadcasting"
+              class="d-flex-column flex-grow"
+            >
+              <span class="variable-name">Message Broadcasting</span>
+              <span>{{ selectedGame.purpose.messageBroadcasting }}</span>
+            </div>
+
+            <div
+              *ngIf="selectedGame.purpose.training"
+              class="d-flex-column flex-grow"
+            >
+              <span class="variable-name">Training</span>
+              <span>{{ selectedGame.purpose.training }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="selectedGame.category"
+          class="category-class d-flex-column border-bottom pb-2 mb-3"
+        >
+          <span class="title-name pb-2">Category</span>
+          <div class="d-flex">
+            <div
+              *ngIf="
+                selectedGame.category.actionAdventure &&
+                selectedGame.category.actionAdventure.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Action Adventure</span>
+              <span
+                *ngFor="let category of selectedGame.category.actionAdventure"
+                >{{ category }}</span
+              >
+            </div>
+
+            <div
+              *ngIf="
+                selectedGame.category.actionGames &&
+                selectedGame.category.actionGames.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Action Games</span>
+              <span
+                *ngFor="let category of selectedGame.category.actionGames"
+                >{{ category }}</span
+              >
+            </div>
+
+            <div
+              *ngIf="
+                selectedGame.category.adventure &&
+                selectedGame.category.adventure.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Adventure</span>
+              <span *ngFor="let category of selectedGame.category.adventure">{{
+                category
+              }}</span>
+            </div>
+
+            <div
+              *ngIf="
+                selectedGame.category.idle &&
+                selectedGame.category.idle.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Idle</span>
+              <span *ngFor="let category of selectedGame.category.idle">{{
+                category
+              }}</span>
+            </div>
+
+            <div
+              *ngIf="
+                selectedGame.category.puzzle &&
+                selectedGame.category.puzzle.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Puzzle</span>
+              <span *ngFor="let category of selectedGame.category.puzzle">{{
+                category
+              }}</span>
+            </div>
+
+            <div
+              *ngIf="
+                selectedGame.category.rolePlaying &&
+                selectedGame.category.rolePlaying.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Role Playing</span>
+              <span
+                *ngFor="let category of selectedGame.category.rolePlaying"
+                >{{ category }}</span
+              >
+            </div>
+
+            <div
+              *ngIf="
+                selectedGame.category.simulation &&
+                selectedGame.category.simulation.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Simulation</span>
+              <span *ngFor="let category of selectedGame.category.simulation">{{
+                category
+              }}</span>
+            </div>
+
+            <div
+              *ngIf="
+                selectedGame.category.sports &&
+                selectedGame.category.sports.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Sports</span>
+              <span *ngFor="let category of selectedGame.category.sports">{{
+                category
+              }}</span>
+            </div>
+
+            <div
+              *ngIf="
+                selectedGame.category.strategy &&
+                selectedGame.category.strategy.length > 0
+              "
+              class="d-flex-column pr-5"
+            >
+              <span class="variable-name">Strategy</span>
+              <span *ngFor="let category of selectedGame.category.strategy">{{
+                category
+              }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          *ngIf="selectedGame.description"
+          class="description-class d-flex-column mb-3"
+        >
+          <span class="title-name pb-2">Description</span>
+          <div class="d-flex">
+            <span>{{ selectedGame.description }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
