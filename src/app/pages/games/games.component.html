@@ -7,8 +7,19 @@
     </button>
   </div>
   <div class="size-100">
+    <div class="search-box">
+      <input
+        class="form-control"
+        type="search"
+        name="search"
+        [(ngModel)]="searchText"
+        autocomplete="off"
+        placeholder="Start searching for a game"
+      />
+      <a class="pl-2" href="#" routerLinkActive="active">Advanced Search</a>
+    </div>
     <div class="container-card">
-      <ng-container *ngFor="let game of datasource">
+      <ng-container *ngFor="let game of datasource | filter:searchText">
         <ag-card [data]="game"></ag-card>
       </ng-container>
     </div>

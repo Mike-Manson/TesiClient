@@ -11,6 +11,7 @@ import { GamesDto } from './games';
 export class GamesComponent implements OnInit {
 
   datasource: GamesDto[];
+  searchText: string;
 
   constructor(private router: Router) {
     this.datasource = games;
@@ -23,4 +24,9 @@ export class GamesComponent implements OnInit {
   navTo() {
     this.router.navigate(['games', 'game-form']);
   }
+
+  filter() {
+
+  }
+
 }
