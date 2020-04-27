@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TableDto } from 'src/app/components/table/table';
 import { Router } from '@angular/router';
 import { games } from './games-datasource';
+import { GamesDto } from './games';
 
 @Component({
   selector: 'app-games',
@@ -10,54 +10,17 @@ import { games } from './games-datasource';
 })
 export class GamesComponent implements OnInit {
 
-  datasource: TableDto = {
-    columnDefs: [
-      {
-        headerName: 'Name',
-        field: 'name'
-      },
-      {
-        headerName: 'Description',
-        field: 'description'
-      },
-      {
-        headerName: 'Authors',
-        field: 'authors'
-      },
-      {
-        headerName: 'Gameplay',
-        field: 'gameplay'
-      },
-      {
-        headerName: 'Scope',
-        field: 'scope'
-      },
-      {
-        headerName: 'Platform',
-        field: 'platform'
-      },
-      {
-        headerName: 'Audience',
-        field: 'audience'
-      }
-    ],
-    rowData: games,
-    rowClicked: e => this.goToDetailPage(e)
+  datasource: GamesDto[];
+
+  constructor(private router: Router) {
+    this.datasource = games;
   }
 
-  constructor(private router: Router) { }
+  ngOnInit() {
 
-  ngOnInit(): void {
   }
 
   navTo() {
     this.router.navigate(['games', 'game-form']);
   }
-
-  goToDetailPage(row) {
-    console.log(row);
-    const id = row.data.id;
-    this.router.navigate(['games', id]);
-  }
-
 }

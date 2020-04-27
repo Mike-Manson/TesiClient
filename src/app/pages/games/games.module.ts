@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GamesComponent } from './games.component';
-import { TableModule } from 'src/app/components/table/table.module';
 import { GameFormComponent } from './game-form/game-form.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { CardModule } from 'src/app/components/card/card.module'
 
 @NgModule({
   declarations: [
@@ -13,11 +13,11 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
   ],
   imports: [
     CommonModule,
-    TableModule
+    CardModule
   ],
   exports: [
     GamesComponent,
-    TableModule,
+    CardModule,
     GameFormComponent,
     GameDetailComponent
   ]

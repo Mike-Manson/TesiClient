@@ -70,7 +70,7 @@ export const games: GamesDto[] = [
       actionAdventure: [ActionAdventure.SurvivalHorror]
     },
     audience: Audience.Band5,
-    img: 'assets/assassinscreed.jpg',
+    img: 'assets/caesar3.jpg',
     pegi: Pegi.PEGi18,
     pegiDescriptors: [
       PegiDescriptor.Online,

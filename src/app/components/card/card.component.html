@@ -1,0 +1,13 @@
+<div class="card" (click)="navTo(data.id)">
+  <div class="img-class px-2">
+    <img class="w-100" src="{{data.img}}">
+  </div>
+  <div class="detail-class">
+    <span class="title-name">Name</span>
+    <span>{{ data.name }}</span>
+    <span class="title-name">Scope</span>
+    <span>{{ data.scope }}</span>
+    <span class="title-name">Audience</span>
+    <span>{{ data.audience }}</span>
+  </div>
+</div>
