@@ -12,6 +12,20 @@ export class GamesComponent implements OnInit {
 
   datasource: GamesDto[];
   searchText: string;
+  options = [
+    {
+      value: 1,
+      label: 'one'
+    },
+    {
+      value: 2,
+      label: 'two'
+    },
+    {
+      value: 3,
+      label: 'three'
+    }
+  ]
 
   constructor(private router: Router) {
     this.datasource = games;

@@ -6,6 +6,7 @@ import { GameFormComponent } from './game-form/game-form.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { CardModule } from 'src/app/components/card/card.module'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SelectModule } from 'src/app/components/select/select.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CommonModule,
     CardModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    SelectModule
   ],
   exports: [
     GamesComponent,
