@@ -1,6 +1,6 @@
 <div class="card" (click)="navTo(data.id)">
   <div class="img-class px-2">
-    <img class="w-100" src="{{data.img}}">
+    <img class="w-100" src="{{data.img ? data.img : 'assets/no-image.jpg'}}">
   </div>
   <div class="detail-class">
     <span class="title-name">Name</span>
