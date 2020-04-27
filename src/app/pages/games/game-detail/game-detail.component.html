@@ -1,11 +1,11 @@
-<div class="size-100 h-align-center">
+<div class="size-100 d-flex-column">
+  <div class="d-flex justify-content-between pb-2">
+    <h1>{{ selectedGame.name }}</h1>
+    <button class="pointer" (click)="location.back()">
+      Back
+    </button>
+  </div>
   <div class="page-content">
-    <div class="d-flex justify-content-between pb-2">
-      <span class="page-title">{{ selectedGame.name }}</span>
-      <button class="pointer" (click)="location.back()">
-        Back
-      </button>
-    </div>
     <div class="size-100 game-detail-grid">
       <div class="img-area size-100">
         <img class="img-class w-100" [src]="selectedGame.img" />
