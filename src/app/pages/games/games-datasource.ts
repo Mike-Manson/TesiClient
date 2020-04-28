@@ -1,4 +1,16 @@
-import { GamesDto, Gameplay, Scope, Platform, ActionGames, ActionAdventure, Audience, Pegi, PegiDescriptor, Adventure } from './games';
+import {
+  GamesDto,
+  Gameplay,
+  Scope,
+  Platform,
+  ActionGames,
+  Audience,
+  Pegi,
+  PegiDescriptor,
+  Adventure,
+  Purpose,
+  Simulation,
+} from './games';
 
 export const games: GamesDto[] = [
   {
@@ -17,70 +29,139 @@ export const games: GamesDto[] = [
       {
         id: 1,
         gameId: 1,
-        fullName: 'Ubisoft'
-      }
+        fullName: 'Ubisoft',
+      },
     ],
     gameplay: Gameplay.PlayBased,
-    purpose: {
-      dataExchange: 'Data Exchange',
-      training: 'Training',
-      messageBroadcasting: 'Message Broadcasting'
-    },
+    purpose: [Purpose.DataExchange],
     scope: Scope.Education,
     platform: Platform.Virtual,
     category: {
       actionGames: [
         ActionGames.Fighting,
         ActionGames.Stealth,
-        ActionGames.Fighting
+        ActionGames.Fighting,
       ],
-      adventure: [
-        Adventure.RealTime3D
-      ]
+      adventure: [Adventure.RealTime3D],
     },
     audience: Audience.Band5,
     img: 'assets/assassinscreed.jpg',
     pegi: Pegi.PEGi16,
-    pegiDescriptors: [
-      PegiDescriptor.Violence,
-      PegiDescriptor.BadLanguage
-    ]
+    pegiDescriptors: [PegiDescriptor.Violence, PegiDescriptor.BadLanguage],
   },
   {
     id: 2,
-    name: 'Gioco 2',
-    description: 'description',
+    name: `Caesar 3`,
+    description: `Caesar III è un videogioco manageriale strategico in tempo reale (RTS) della Sierra On-line. È ambientato all'epoca dell'impero romano, senza tuttavia poterlo considerare "storico" nei fatti che presenta. Il sistema di gioco è simile a quello della saga di SimCity, ovvero molto incentrato sulla creazione di una città e dei servizi connessi.`,
     authors: [
       {
         id: 1,
-        gameId: 2,
-        fullName: 'Ciccio Cappuccio'
-      }
+        gameId: 1,
+        fullName: 'Sierra On-line',
+      },
     ],
-    gameplay: Gameplay.PlayBased,
-    purpose: {
-      dataExchange: 'DataExchange',
-      training: 'Training',
-      messageBroadcasting: 'MessageBroadcasting'
-    },
+    gameplay: Gameplay.GameBased,
+    purpose: [Purpose.DataExchange],
     scope: Scope.MilitaryDefense,
     platform: Platform.Virtual,
     category: {
-      actionGames: [ActionGames.Shooter, ActionGames.Stealth, ActionGames.Survival],
-      actionAdventure: [ActionAdventure.SurvivalHorror]
+      simulation: [
+        Simulation.ConstructionManagementSimulation
+      ],
     },
     audience: Audience.Band5,
     img: 'assets/caesar3.jpg',
-    pegi: Pegi.PEGi18,
-    pegiDescriptors: [
-      PegiDescriptor.Online,
-      PegiDescriptor.Drugs,
-      PegiDescriptor.Gambling,
-      PegiDescriptor.Discrimination,
-      PegiDescriptor.Fear,
-      PegiDescriptor.Sex,
-      PegiDescriptor.Violence
-    ]
-  }
-
-]
+    pegi: Pegi.PEGi3
+  },
+  {
+    id: 3,
+    name: `Adiboud'Chou Jungle et Savane`,
+    description: `Adiboud'Chou Jungle et Savane sur PC est un titre ludo-éducatif pour les 2-5 ans qui invite ses joueurs à traverser quelques jeux et activités pour découvrir les formes, les couleurs ou encore les sons. Retrouvez dans chaque titre un contenu riche conçu en collaboration avec des éducateurs en crèches et des instituteurs. De nombreuses activités sont proposées avec différents niveaux de difficulté pour un apprentissage tout en douceur.`,
+    gameplay: Gameplay.GameBased,
+    scope: Scope.Education,
+    platform: Platform.Virtual,
+    audience: Audience.Band2,
+    img: 'assets/jaquette-adiboud-chou-jungle-et-.jpg',
+    pegi: Pegi.PEGi3
+  },
+  {
+    id: 4,
+    name: `Teletubbies`,
+    gameplay: Gameplay.GameBased,
+    scope: Scope.Humanitarian,
+    platform: Platform.Virtual,
+    audience: Audience.Band4,
+    img: 'assets/teleps0f.jpg',
+    pegi: Pegi.PEGi3
+  },
+  {
+    id: 5,
+    name: `2 Player Game`,
+    scope: Scope.Humanitarian,
+    img: 'assets/2-player-head-basketball.jpg',
+    audience: Audience.Band1,
+  },
+  {
+    id: 6,
+    name: `Cheerios Play Time`,
+    scope: Scope.Advertising,
+    img: 'assets/Cheerios-Play-Time.png',
+    audience: Audience.Band4,
+  },
+  {
+    id: 7,
+    name: `Curapy`,
+    scope: Scope.Healthcare,
+    img: 'assets/curapy.jpg',
+    audience: Audience.GeneralPublic,
+  },
+  {
+    id: 8,
+    name: `English Taxi`,
+    scope: Scope.Ecology,
+    img: 'assets/English-Taxi.jpg',
+    audience: Audience.Band5,
+  },
+  {
+    id: 9,
+    name: `GeoSafari: Animals`,
+    scope: Scope.Ecology,
+    img: 'assets/GeoSafari-Animals.png',
+    audience: Audience.Band4,
+  },
+  {
+    id: 10,
+    name: `Jirosum`,
+    scope: Scope.ScientificResearch,
+    img: 'assets/Jirosum.gif',
+    audience: Audience.Band3,
+  },
+  {
+    id: 11,
+    name: `Le tour du monde en 80 déchets`,
+    scope: Scope.Ecology,
+    img: 'assets/10293_14630_fra.png',
+    audience: Audience.Band3,
+  },
+  {
+    id: 12,
+    name: `Physica`,
+    scope: Scope.ScientificResearch,
+    img: 'assets/Physica.jpg',
+    audience: Audience.Band4,
+  },
+  {
+    id: 13,
+    name: `Planet Rescue: Ocean Patrol`,
+    scope: Scope.Ecology,
+    img: 'assets/Planet-Rescue-Ocean-Patrol.jpg',
+    audience: Audience.GeneralPublic,
+  },
+  {
+    id: 14,
+    name: `Seismic Duck`,
+    scope: Scope.ScientificResearch,
+    img: 'assets/Seismic-Duck.png',
+    audience: Audience.GeneralPublic,
+  },
+];

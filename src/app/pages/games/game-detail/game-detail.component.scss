@@ -50,8 +50,8 @@
   grid-gap: 1rem;
   grid-template-areas: "pegi-class ."
                         "descriptors-class descriptors-class"
+                        "authors-class purpose-area"
                         "platform-class platform-class"
-                        "authors-class authors-class";
 }
 
 .pegi-class {
@@ -87,7 +87,6 @@
   grid-gap: 1rem;
   grid-template-areas:
   "game-area"
-  "purpose-area"
   "category"
   "description";
 }

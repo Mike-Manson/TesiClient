@@ -4,7 +4,7 @@ export interface GamesDto {
   description?: string;
   authors?: AuthorDto[];
   gameplay?: Gameplay;
-  purpose?: PurposeDto;
+  purpose?: Purpose[];
   scope?: Scope;
   platform?: Platform;
   category?: CategoryDto;
@@ -14,10 +14,10 @@ export interface GamesDto {
   pegiDescriptors?: PegiDescriptor[];
 }
 
-export interface PurposeDto {
-  dataExchange?: string;
-  training?: string;
-  messageBroadcasting?: string;
+export enum Purpose {
+  DataExchange = 'Data Exchange',
+  Training = 'Training',
+  MessageBroadcasting = 'Message Broadcasting'
 }
 
 export interface CategoryDto {

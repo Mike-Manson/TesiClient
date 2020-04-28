@@ -28,6 +28,16 @@
           </div>
 
           <div
+            *ngIf="selectedGame.purpose && selectedGame.purpose.length > 0"
+            class="purpose-area d-flex-column"
+          >
+            <span class="variable-name">Purpose</span>
+            <span *ngFor="let purpose of selectedGame.purpose">
+              {{ purpose }}
+            </span>
+          </div>
+
+          <div
             *ngIf="selectedGame.platform"
             class="platform-class d-flex-column"
           >
@@ -37,12 +47,10 @@
         </div>
       </div>
       <div class="detail-area">
-
         <div
           *ngIf="selectedGame.category"
           class="game-area d-flex-column border-bottom pb-2 mb-3"
         >
-
           <div class="d-flex">
             <div
               *ngIf="selectedGame.gameplay"
@@ -66,43 +74,6 @@
             >
               <span class="variable-name">Scope</span>
               <span>{{ selectedGame.scope }}</span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          *ngIf="
-            selectedGame.purpose &&
-            selectedGame.purpose.dataExchange &&
-            selectedGame.purpose.messageBroadcasting &&
-            selectedGame.purpose.training
-          "
-          class="purpose-area d-flex-column border-bottom pb-2 mb-3"
-        >
-          <span class="title-name pb-2">Purpose</span>
-          <div class="d-flex">
-            <div
-              *ngIf="selectedGame.purpose.dataExchange"
-              class="d-flex-column flex-grow"
-            >
-              <span class="variable-name">Data Exchange</span>
-              <span>{{ selectedGame.purpose.dataExchange }}</span>
-            </div>
-
-            <div
-              *ngIf="selectedGame.purpose.messageBroadcasting"
-              class="d-flex-column flex-grow"
-            >
-              <span class="variable-name">Message Broadcasting</span>
-              <span>{{ selectedGame.purpose.messageBroadcasting }}</span>
-            </div>
-
-            <div
-              *ngIf="selectedGame.purpose.training"
-              class="d-flex-column flex-grow"
-            >
-              <span class="variable-name">Training</span>
-              <span>{{ selectedGame.purpose.training }}</span>
             </div>
           </div>
         </div>
