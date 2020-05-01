@@ -22,7 +22,7 @@
             class="authors-class d-flex-column"
           >
             <span class="variable-name">Authors</span>
-            <span *ngFor="let author of selectedGame.authors">
+            <span *ngFor="let author of selectedGame.authors" class="pb-1">
               {{ author.fullName }}
             </span>
           </div>
@@ -38,12 +38,15 @@
           </div>
 
           <div
-            *ngIf="selectedGame.platform"
+            *ngIf="selectedGame.platform && selectedGame.platform.length > 0"
             class="platform-class d-flex-column"
           >
             <span class="variable-name">Platform</span>
-            <span>{{ selectedGame.platform }}</span>
+            <span *ngFor="let platform of selectedGame.platform">
+              {{ platform }}
+            </span>
           </div>
+
         </div>
       </div>
       <div class="detail-area">
