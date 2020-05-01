@@ -2,8 +2,9 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
 @import "./app/ui/_variables";
-@import "./app/ui/mixin";
+@import "./app/ui/_mixin";
 @import "./app/ui/_utils";
+@import "./app/ui/_forms";
 
 .ag-theme-alpine {
     @include ag-theme-alpine();
