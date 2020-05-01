@@ -15,19 +15,6 @@
       Name is required
     </div>
 
-    <!-- <div class="form-group">
-      <label for="platform">Platform</label>
-      <div *ngFor="let platform of platforms">
-        <input
-        type="checkbox"
-        class="form-control"
-        id="platform"
-        [(ngModel)]="game"
-        name="platform"
-      />
-      </div>
-    </div> -->
-
     <div class="form-group">
       <label for="gameplay">Gameplay</label>
 
@@ -42,8 +29,21 @@
     </div>
 
     <div class="form-group">
-      <label for="platform">Platform</label>
+      <label for="scopes">Scope</label>
 
+      <ng-select
+        [items]="scopes"
+        [multiple]="true"
+        [selectableGroup]="true"
+        [closeOnSelect]="false"
+        [(ngModel)]="game.scope"
+        name="scopes"
+      >
+      </ng-select>
+    </div>
+
+    <div class="form-group">
+      <label for="platform">Platform</label>
       <ng-select
         [items]="platforms"
         [multiple]="true"
@@ -52,6 +52,201 @@
         [(ngModel)]="game.platform"
         name="platforms"
       >
+      </ng-select>
+    </div>
+
+    <div class="form-group">
+      <label for="purpose">Purpose</label>
+      <ng-select
+        [items]="purposes"
+        [multiple]="true"
+        [selectableGroup]="true"
+        [closeOnSelect]="false"
+        [(ngModel)]="game.purpose"
+        name="purposes"
+      >
+      </ng-select>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+
+      <div class="form-group">
+        <label for="actionAdventure">Action Adventure</label>
+        <ng-select
+          [items]="actionAdventure"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.actionAdventure"
+          name="actionAdventure"
+        >
+        </ng-select>
+      </div>
+
+      <div class="form-group">
+        <label for="actionGames">Action Games</label>
+        <ng-select
+          [items]="actionGames"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.actionGames"
+          name="actionGames"
+        >
+        </ng-select>
+      </div>
+
+      <div class="form-group">
+        <label for="adventure">Adventure</label>
+        <ng-select
+          [items]="adventure"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.adventure"
+          name="adventure"
+        >
+        </ng-select>
+      </div>
+
+      <div class="form-group">
+        <label for="idle">Idle</label>
+        <ng-select
+          [items]="idle"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.idle"
+          name="idle"
+        >
+        </ng-select>
+      </div>
+
+      <div class="form-group">
+        <label for="puzzle">Puzzle</label>
+        <ng-select
+          [items]="puzzle"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.puzzle"
+          name="puzzle"
+        >
+        </ng-select>
+      </div>
+
+      <div class="form-group">
+        <label for="rolePlaying">Role Playing</label>
+        <ng-select
+          [items]="rolePlaying"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.rolePlaying"
+          name="rolePlaying"
+        >
+        </ng-select>
+      </div>
+
+      <div class="form-group">
+        <label for="simulation">Simulation</label>
+        <ng-select
+          [items]="simulation"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.simulation"
+          name="simulation"
+        >
+        </ng-select>
+      </div>
+
+      <div class="form-group">
+        <label for="sports">Sports</label>
+        <ng-select
+          [items]="sports"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.sports"
+          name="sports"
+        >
+        </ng-select>
+      </div>
+
+      <div class="form-group">
+        <label for="strategy">Strategy</label>
+        <ng-select
+          [items]="strategy"
+          [multiple]="true"
+          [selectableGroup]="true"
+          [closeOnSelect]="false"
+          [(ngModel)]="game.category.strategy"
+          name="strategy"
+        >
+        </ng-select>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="audience">Audience</label>
+      <ng-select
+        [items]="audience"
+        [multiple]="true"
+        [selectableGroup]="true"
+        [closeOnSelect]="false"
+        [(ngModel)]="game.audience"
+        name="audience"
+      >
+      </ng-select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="pegi">PEGi</label>
+      <ng-select
+        [items]="pegis"
+        [selectableGroup]="true"
+        [closeOnSelect]="true"
+        [(ngModel)]="game.pegi"
+        name="pegis"
+      >
+        <ng-template
+          ng-option-tmp
+          let-item="item"
+          let-index="index"
+          let-search="searchTerm"
+        >
+          <img class="pegi-class pr-3" [src]="selectedPegi(item)" />
+          <span class="text">{{ item }}</span>
+        </ng-template>
+      </ng-select>
+    </div>
+
+    <div class="form-group">
+      <label for="pegiDescriptors">PEGi Descriptors</label>
+      <ng-select
+        [items]="descriptors"
+        [multiple]="true"
+        [selectableGroup]="true"
+        [closeOnSelect]="false"
+        [(ngModel)]="game.pegiDescriptors"
+        name="pegiDescriptors"
+      >
+        <ng-template
+          ng-option-tmp
+          let-item="item"
+          let-index="index"
+          let-search="searchTerm"
+        >
+          <img
+            class="pegi-descriptors-class pr-3"
+            [src]="selectedPegiDescriptor(item)"
+          />
+          <span class="text">{{ item }}</span>
+        </ng-template>
       </ng-select>
     </div>
 

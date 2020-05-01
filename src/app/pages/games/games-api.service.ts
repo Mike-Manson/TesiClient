@@ -22,4 +22,8 @@ export class GamesApiService {
       map(g => g[0])
     )
   }
+
+  create(game: GamesDto) {
+
+  }
 }

@@ -5,7 +5,7 @@ export interface GamesDto {
   authors?: AuthorDto[];
   gameplay?: Gameplay;
   purpose?: Purpose[];
-  scope?: Scope;
+  scope?: Scope[];
   platform?: AllPlatform[];
   category?: CategoryDto;
   audience?: Audience[];
@@ -51,11 +51,11 @@ export enum PegiDescriptor {
 }
 
 export enum Pegi {
-  PEGi3,
-  PEGi7,
-  PEGi12,
-  PEGi16,
-  PEGi18,
+  PEGi3 = 'PEGi 3',
+  PEGi7 = 'PEGi 7',
+  PEGi12 = 'PEGi 12',
+  PEGi16 = 'PEGi 16',
+  PEGi18 = 'PEGi 18'
 }
 
 export enum Gameplay {

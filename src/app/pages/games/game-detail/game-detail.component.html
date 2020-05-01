@@ -73,12 +73,15 @@
             </div>
 
             <div
-              *ngIf="selectedGame.scope"
+              *ngIf="selectedGame.scope && selectedGame.scope.length > 0"
               class="scope-class d-flex-column flex-grow"
             >
               <span class="variable-name">Scope</span>
-              <span>{{ selectedGame.scope }}</span>
+              <span *ngFor="let scope of selectedGame.scope">
+                {{ scope }}
+              </span>
             </div>
+
           </div>
         </div>
 
