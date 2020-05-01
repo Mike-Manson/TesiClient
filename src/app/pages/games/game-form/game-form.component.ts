@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GamesDto, Gameplay, Scope, Audience, Pegi } from '../games';
+import { GamesDto, Gameplay, Scope, Audience, Pegi, AllPlatform } from '../games';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ag-game-form',
@@ -9,8 +10,10 @@ import { GamesDto, Gameplay, Scope, Audience, Pegi } from '../games';
 
 export class GameFormComponent implements OnInit {
 
-  powers = ['Really Smart', 'Super Flexible',
-  'Super Hot', 'Weather Changer'];
+  selectedPlatform;
+  platforms =  Object.values(AllPlatform)
+
+  gameplays =  Object.values(Gameplay);
 
   game: GamesDto = {
     id: 0,
@@ -21,21 +24,32 @@ export class GameFormComponent implements OnInit {
     purpose: [],
     scope: Scope.Education,
     platform: [],
-    category: {},
-    audience: Audience.Band4,
+    category: {
+      actionAdventure: [],
+      actionGames: [],
+      adventure: [],
+      idle: [],
+      puzzle: [],
+      rolePlaying: [],
+      simulation: [],
+      sports: [],
+      strategy: []
+    },
+    audience: [],
     img: '',
     pegi: Pegi.PEGi3,
     pegiDescriptors: [],
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+
   }
 
   onSubmit(e) {
-    console.log(e);
-
+    console.log(e, this.selectedPlatform);
+    // this.router.navigate(['games', 'game-form']);
  }
 
 }

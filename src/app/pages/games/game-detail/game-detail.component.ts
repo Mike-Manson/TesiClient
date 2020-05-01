@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { games } from '../games-datasource';
 import { GamesDto, Pegi, PegiDescriptor } from '../games';
 import { Location } from '@angular/common';
+import { GamesApiService } from '../games-api.service';
 
 @Component({
   selector: 'app-game-detail',
@@ -12,13 +12,15 @@ import { Location } from '@angular/common';
 export class GameDetailComponent implements OnInit {
   selectedGame: GamesDto;
 
-  constructor(private route: ActivatedRoute, public location: Location) {}
+  constructor(
+    private route: ActivatedRoute,
+    public location: Location,
+    private service: GamesApiService
+    ) {}
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.selectedGame = games.find((g) => g.id === id);
-    console.log(this.selectedGame);
-
+    this.service.getById(id).subscribe(g => this.selectedGame = g);
 
   }
 

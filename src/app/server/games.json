@@ -1,0 +1,172 @@
+{
+  "games": [
+    {
+      "id": 2,
+      "name": "Caesar 3",
+      "description": "Caesar III è un videogioco manageriale strategico in tempo reale (RTS) della Sierra On-line. È ambientato all'epoca dell'impero romano, senza tuttavia poterlo considerare \"storico\" nei fatti che presenta. Il sistema di gioco è simile a quello della saga di SimCity, ovvero molto incentrato sulla creazione di una città e dei servizi connessi.",
+      "authors": [
+        {
+          "id": 1,
+          "gameId": 1,
+          "fullName": "Sierra On-line"
+        }
+      ],
+      "gameplay": "Game Based",
+      "purpose": [
+        "Data Exchange"
+      ],
+      "scope": "Military Defense",
+      "platform": [],
+      "category": {
+        "simulation": [
+          "Construction Management Simulation"
+        ]
+      },
+      "audience": [
+        "17 to 25 years old"
+      ],
+      "img": "assets/caesar3.jpg",
+      "pegi": 0
+    },
+    {
+      "id": 3,
+      "name": "Adiboud'Chou Jungle et Savane",
+      "description": "Adiboud'Chou Jungle et Savane sur PC est un titre ludo-éducatif pour les 2-5 ans qui invite ses joueurs à traverser quelques jeux et activités pour découvrir les formes, les couleurs ou encore les sons. Retrouvez dans chaque titre un contenu riche conçu en collaboration avec des éducateurs en crèches et des instituteurs. De nombreuses activités sont proposées avec différents niveaux de difficulté pour un apprentissage tout en douceur.",
+      "gameplay": "Game Based",
+      "scope": "Education",
+      "platform": [],
+      "audience": [
+        "3 to 7 years old"
+      ],
+      "img": "assets/jaquette-adiboud-chou-jungle-et-.jpg",
+      "pegi": 0
+    },
+    {
+      "id": 4,
+      "name": "Teletubbies",
+      "gameplay": "Game Based",
+      "scope": "Humanitarian",
+      "platform": [],
+      "audience": [
+        "12 to 16 years old"
+      ],
+      "img": "assets/teleps0f.jpg",
+      "pegi": 0
+    },
+    {
+      "id": 5,
+      "name": "2 Player Game",
+      "scope": "Humanitarian",
+      "img": "assets/2-player-head-basketball.jpg",
+      "audience": [
+        "0 to 3  years old"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Cheerios Play Time",
+      "scope": "Advertising",
+      "img": "assets/Cheerios-Play-Time.png",
+      "audience": [
+        "12 to 16 years old"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Curapy",
+      "scope": "Healthcare",
+      "img": "assets/curapy.jpg",
+      "audience": [
+        "General Public"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "English Taxi",
+      "img": "assets/English-Taxi.jpg",
+      "audience": [
+        "Students"
+      ],
+      "description": "A serious game to teach english to Chinese students through cab driving",
+      "authors": [
+        {
+          "id": 1,
+          "gameId": 8,
+          "fullName": "DESQ / Aqua Pacific (United Kingdom)"
+        },
+        {
+          "id": 2,
+          "gameId": 8,
+          "fullName": "British Council in Beijing (China)"
+        }
+      ],
+      "gameplay": "Game Based",
+      "purpose": [
+        "Educative Message Broadcasting"
+      ],
+      "scope": "Education",
+      "platform": [],
+      "category": {
+        "simulation": [
+          "Life Simulation"
+        ]
+      },
+      "pegi": 3
+    },
+    {
+      "id": 9,
+      "name": "GeoSafari: Animals",
+      "scope": "Ecology",
+      "img": "assets/GeoSafari-Animals.png",
+      "audience": [
+        "12 to 16 years old"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Jirosum",
+      "scope": "Scientific Research",
+      "img": "assets/Jirosum.gif",
+      "audience": [
+        "8 to 11 years old"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Le tour du monde en 80 déchets",
+      "scope": "Ecology",
+      "img": "assets/10293_14630_fra.png",
+      "audience": [
+        "8 to 11 years old"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Physica",
+      "scope": "Scientific Research",
+      "img": "assets/Physica.jpg",
+      "audience": [
+        "12 to 16 years old"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Planet Rescue: Ocean Patrol",
+      "scope": "Ecology",
+      "img": "assets/Planet-Rescue-Ocean-Patrol.jpg",
+      "audience": [
+        "General Public"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Seismic Duck",
+      "scope": "Scientific Research",
+      "img": "assets/Seismic-Duck.png",
+      "audience": [
+        "General Public"
+      ]
+    }
+  ]
+
+}

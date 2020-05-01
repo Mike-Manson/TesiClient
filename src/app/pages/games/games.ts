@@ -8,7 +8,7 @@ export interface GamesDto {
   scope?: Scope;
   platform?: AllPlatform[];
   category?: CategoryDto;
-  audience?: Audience;
+  audience?: Audience[];
   img?: string;
   pegi?: Pegi;
   pegiDescriptors?: PegiDescriptor[];
@@ -29,7 +29,7 @@ export interface CategoryDto {
   rolePlaying?: RolePlaying[];
   simulation?: Simulation[];
   sports?: Sports[];
-  strategy?: Strategy;
+  strategy?: Strategy[];
 }
 
 export interface AuthorDto {

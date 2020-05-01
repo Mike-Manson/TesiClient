@@ -46,7 +46,6 @@
               {{ platform }}
             </span>
           </div>
-
         </div>
       </div>
       <div class="detail-area">
@@ -64,11 +63,13 @@
             </div>
 
             <div
-              *ngIf="selectedGame.audience"
+              *ngIf="selectedGame.audience && selectedGame.audience.length > 0"
               class="audience-class d-flex-column flex-grow"
             >
               <span class="variable-name">Audience</span>
-              <span>{{ selectedGame.audience }}</span>
+              <span *ngFor="let audience of selectedGame.audience">
+                {{ audience }}
+              </span>
             </div>
 
             <div

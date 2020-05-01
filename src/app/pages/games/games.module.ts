@@ -7,6 +7,9 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { CardModule } from 'src/app/components/card/card.module'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SelectModule } from 'src/app/components/select/select.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { SelectModule } from 'src/app/components/select/select.module';
     CardModule,
     FormsModule,
     Ng2SearchPipeModule,
-    SelectModule
+    SelectModule,
+    NgSelectModule,
+    HttpClientModule
   ],
   exports: [
     GamesComponent,

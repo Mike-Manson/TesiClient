@@ -1,6 +1,6 @@
 <div>
   <h1>New Game</h1>
-  <form (ngSubmit)="onSubmit(game)" #heroForm="ngForm">
+  <form (ngSubmit)="onSubmit(game)" #gameForm="ngForm">
     <label for="name">Name</label>
     <input
       type="text"
@@ -15,33 +15,61 @@
       Name is required
     </div>
 
-    <div class="form-group">
-      <label for="authors">Authors</label>
-      <input
-        type="text"
+    <!-- <div class="form-group">
+      <label for="platform">Platform</label>
+      <div *ngFor="let platform of platforms">
+        <input
+        type="checkbox"
         class="form-control"
-        id="authors"
-        [(ngModel)]="game.authors"
-        name="authors"
+        id="platform"
+        [(ngModel)]="game"
+        name="platform"
       />
-    </div>
-<!--
-    <div class="form-group">
-      <label for="power">Hero Power</label>
-      <select
-        class="form-control"
-        id="power"
-        required
-        [(ngModel)]="game.power"
-        name="power"
-      >
-        <option *ngFor="let pow of powers" [value]="pow">{{ pow }}</option>
-      </select>
+      </div>
     </div> -->
+
+    <div class="form-group">
+      <label for="gameplay">Gameplay</label>
+
+      <ng-select
+        [items]="gameplays"
+        [selectableGroup]="true"
+        [closeOnSelect]="true"
+        [(ngModel)]="game.gameplay"
+        name="gameplays"
+      >
+      </ng-select>
+    </div>
+
+    <div class="form-group">
+      <label for="platform">Platform</label>
+
+      <ng-select
+        [items]="platforms"
+        [multiple]="true"
+        [selectableGroup]="true"
+        [closeOnSelect]="false"
+        [(ngModel)]="game.platform"
+        name="platforms"
+      >
+      </ng-select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        [(ngModel)]="game.description"
+        name="description"
+      >
+      </textarea>
+    </div>
+
     <button
       type="submit"
       class="btn btn-success"
-      [disabled]="!heroForm.form.valid"
+      [disabled]="!gameForm.form.valid"
     >
       Submit
     </button>
