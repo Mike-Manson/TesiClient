@@ -8,7 +8,10 @@
   <div class="page-content">
     <div class="size-100 game-detail-grid">
       <div class="img-area size-100">
-        <img class="img-class w-100" [src]="selectedGame.img ? selectedGame.img : 'assets/no-image.jpg'" />
+        <img
+          class="img-class w-100"
+          [src]="selectedGame.img ? selectedGame.img : 'assets/no-image.jpg'"
+        />
         <div class="pegi-area w-100">
           <img class="pegi-class" [src]="selectedPegi()" />
           <div class="descriptors-class">
@@ -17,34 +20,60 @@
               [src]="selectedPegiDescriptor(d)"
             />
           </div>
-          <div
-            *ngIf="selectedGame.authors && selectedGame.authors.length > 0"
-            class="authors-class d-flex-column"
-          >
+          <div class="authors-class d-flex-column">
             <span class="variable-name">Authors</span>
-            <span *ngFor="let author of selectedGame.authors" class="pb-1">
-              {{ author.fullName }}
-            </span>
+            <ng-container
+              *ngIf="selectedGame.authors && selectedGame.authors.length > 0"
+            >
+              <span *ngFor="let author of selectedGame.authors" class="pb-1">
+                {{ author.fullName }}
+              </span>
+            </ng-container>
+            <ng-container
+              *ngIf="!(selectedGame.authors && selectedGame.authors.length > 0)"
+            >
+              <span class="pb-1">
+                <i>No Authors inserted</i>
+              </span>
+            </ng-container>
           </div>
 
-          <div
-            *ngIf="selectedGame.purpose && selectedGame.purpose.length > 0"
-            class="purpose-area d-flex-column"
-          >
+          <div class="purpose-area d-flex-column">
             <span class="variable-name">Purpose</span>
-            <span *ngFor="let purpose of selectedGame.purpose">
-              {{ purpose }}
-            </span>
+            <ng-container
+              *ngIf="selectedGame.purpose && selectedGame.purpose.length > 0"
+            >
+              <span *ngFor="let purpose of selectedGame.purpose">
+                {{ purpose }}
+              </span>
+            </ng-container>
+            <ng-container
+              *ngIf="!(selectedGame.purpose && selectedGame.purpose.length > 0)"
+            >
+              <span class="pb-1">
+                <i>No Purpose inserted</i>
+              </span>
+            </ng-container>
           </div>
 
-          <div
-            *ngIf="selectedGame.platform && selectedGame.platform.length > 0"
-            class="platform-class d-flex-column"
-          >
+          <div class="platform-class d-flex-column">
             <span class="variable-name">Platform</span>
-            <span *ngFor="let platform of selectedGame.platform">
-              {{ platform }}
-            </span>
+            <ng-container
+              *ngIf="selectedGame.platform && selectedGame.platform.length > 0"
+            >
+              <span *ngFor="let platform of selectedGame.platform">
+                {{ platform }}
+              </span>
+            </ng-container>
+            <ng-container
+              *ngIf="
+                !(selectedGame.platform && selectedGame.platform.length > 0)
+              "
+            >
+              <span class="pb-1">
+                <i>No Platform inserted</i>
+              </span>
+            </ng-container>
           </div>
         </div>
       </div>
@@ -54,173 +83,372 @@
           class="game-area d-flex-column border-bottom pb-2 mb-3"
         >
           <div class="d-flex">
-            <div
-              *ngIf="selectedGame.gameplay"
-              class="gameplay-class d-flex-column flex-grow"
-            >
+            <div class="gameplay-class d-flex-column flex-grow">
               <span class="variable-name">Gameplay</span>
-              <span>{{ selectedGame.gameplay }}</span>
+              <ng-container *ngIf="selectedGame.gameplay">
+                <span>{{ selectedGame.gameplay }}</span>
+              </ng-container>
+              <ng-container *ngIf="!selectedGame.gameplay">
+                <span class="pb-1">
+                  <i>No Gameplay inserted</i>
+                </span>
+              </ng-container>
             </div>
 
-            <div
-              *ngIf="selectedGame.audience && selectedGame.audience.length > 0"
-              class="audience-class d-flex-column flex-grow"
-            >
+            <div class="audience-class d-flex-column flex-grow">
               <span class="variable-name">Audience</span>
-              <span *ngFor="let audience of selectedGame.audience">
-                {{ audience }}
-              </span>
+              <ng-container
+                *ngIf="
+                  selectedGame.audience && selectedGame.audience.length > 0
+                "
+              >
+                <span *ngFor="let audience of selectedGame.audience">
+                  {{ audience }}
+                </span>
+              </ng-container>
+              <ng-container
+                *ngIf="
+                  !(selectedGame.audience && selectedGame.audience.length > 0)
+                "
+              >
+                <span class="pb-1">
+                  <i>No Audience inserted</i>
+                </span>
+              </ng-container>
             </div>
 
-            <div
-              *ngIf="selectedGame.scope && selectedGame.scope.length > 0"
-              class="scope-class d-flex-column flex-grow"
-            >
+            <div class="scope-class d-flex-column flex-grow">
               <span class="variable-name">Scope</span>
-              <span *ngFor="let scope of selectedGame.scope">
-                {{ scope }}
-              </span>
+              <ng-container
+                *ngIf="selectedGame.scope && selectedGame.scope.length > 0"
+              >
+                <span *ngFor="let scope of selectedGame.scope">
+                  {{ scope }}
+                </span>
+              </ng-container>
+              <ng-container
+                *ngIf="!(selectedGame.scope && selectedGame.scope.length > 0)"
+              >
+                <span class="pb-1">
+                  <i>No Audience inserted</i>
+                </span>
+              </ng-container>
             </div>
-
           </div>
         </div>
 
-        <div
-          *ngIf="selectedGame.category"
-          class="category-class d-flex-column border-bottom pb-2 mb-3"
-        >
+        <div class="category-class d-flex-column border-bottom pb-2 mb-3">
           <span class="title-name pb-2">Category</span>
-          <div class="d-flex">
-            <div
-              *ngIf="
+          <ng-container
+            *ngIf="
+              selectedGame.category &&
+              selectedGame.category.actionAdventure &&
+              selectedGame.category.actionAdventure.length > 0 &&
+              selectedGame.category.actionGames &&
+              selectedGame.category.actionGames.length > 0 &&
+              selectedGame.category.adventure &&
+              selectedGame.category.adventure.length > 0 &&
+              selectedGame.category.idle &&
+              selectedGame.category.idle.length > 0 &&
+              selectedGame.category.puzzle &&
+              selectedGame.category.puzzle.length > 0 &&
+              selectedGame.category.rolePlaying &&
+              selectedGame.category.rolePlaying.length > 0 &&
+              selectedGame.category.simulation &&
+              selectedGame.category.simulation.length > 0 &&
+              selectedGame.category.sports &&
+              selectedGame.category.sports.length > 0 &&
+              selectedGame.category.strategy &&
+              selectedGame.category.strategy.length > 0
+            "
+          >
+            <div class="d-flex">
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Action Adventure</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.actionAdventure &&
+                    selectedGame.category.actionAdventure.length > 0
+                  "
+                >
+                  <span
+                    *ngFor="
+                      let category of selectedGame.category.actionAdventure
+                    "
+                    >{{ category }}</span
+                  >
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.actionAdventure &&
+                      selectedGame.category.actionAdventure.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Action Adventure inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Action Games</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.actionGames &&
+                    selectedGame.category.actionGames.length > 0
+                  "
+                >
+                  <span
+                    *ngFor="let category of selectedGame.category.actionGames"
+                    >{{ category }}</span
+                  >
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.actionGames &&
+                      selectedGame.category.actionGames.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Action Games inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Adventure</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.adventure &&
+                    selectedGame.category.adventure.length > 0
+                  "
+                >
+                  <span
+                    *ngFor="let category of selectedGame.category.adventure"
+                    >{{ category }}</span
+                  >
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.adventure &&
+                      selectedGame.category.adventure.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Adventure inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Idle</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.idle &&
+                    selectedGame.category.idle.length > 0
+                  "
+                >
+                  <span *ngFor="let category of selectedGame.category.idle">{{
+                    category
+                  }}</span>
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.idle &&
+                      selectedGame.category.idle.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Idle inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Puzzle</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.puzzle &&
+                    selectedGame.category.puzzle.length > 0
+                  "
+                >
+                  <span *ngFor="let category of selectedGame.category.puzzle">{{
+                    category
+                  }}</span>
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.puzzle &&
+                      selectedGame.category.puzzle.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Puzzle inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Role Playing</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.rolePlaying &&
+                    selectedGame.category.rolePlaying.length > 0
+                  "
+                >
+                  <span
+                    *ngFor="let category of selectedGame.category.rolePlaying"
+                    >{{ category }}</span
+                  >
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.rolePlaying &&
+                      selectedGame.category.rolePlaying.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Role Playing inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Simulation</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.simulation &&
+                    selectedGame.category.simulation.length > 0
+                  "
+                >
+                  <span
+                    *ngFor="let category of selectedGame.category.simulation"
+                    >{{ category }}</span
+                  >
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.simulation &&
+                      selectedGame.category.simulation.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Simulation inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Sports</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.sports &&
+                    selectedGame.category.sports.length > 0
+                  "
+                >
+                  <span *ngFor="let category of selectedGame.category.sports">{{
+                    category
+                  }}</span>
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.sports &&
+                      selectedGame.category.sports.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Sports inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+
+              <div class="d-flex-column pr-5">
+                <span class="variable-name">Strategy</span>
+                <ng-container
+                  *ngIf="
+                    selectedGame.category.strategy &&
+                    selectedGame.category.strategy.length > 0
+                  "
+                >
+                  <span
+                    *ngFor="let category of selectedGame.category.strategy"
+                    >{{ category }}</span
+                  >
+                </ng-container>
+                <ng-container
+                  *ngIf="
+                    !(
+                      selectedGame.category.strategy &&
+                      selectedGame.category.strategy.length > 0
+                    )
+                  "
+                >
+                  <span class="pb-1">
+                    <i>No Strategy inserted</i>
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container
+            *ngIf="
+              !(
+                selectedGame.category &&
                 selectedGame.category.actionAdventure &&
-                selectedGame.category.actionAdventure.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Action Adventure</span>
-              <span
-                *ngFor="let category of selectedGame.category.actionAdventure"
-                >{{ category }}</span
-              >
-            </div>
-
-            <div
-              *ngIf="
+                selectedGame.category.actionAdventure.length > 0 &&
                 selectedGame.category.actionGames &&
-                selectedGame.category.actionGames.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Action Games</span>
-              <span
-                *ngFor="let category of selectedGame.category.actionGames"
-                >{{ category }}</span
-              >
-            </div>
-
-            <div
-              *ngIf="
+                selectedGame.category.actionGames.length > 0 &&
                 selectedGame.category.adventure &&
-                selectedGame.category.adventure.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Adventure</span>
-              <span *ngFor="let category of selectedGame.category.adventure">{{
-                category
-              }}</span>
-            </div>
-
-            <div
-              *ngIf="
+                selectedGame.category.adventure.length > 0 &&
                 selectedGame.category.idle &&
-                selectedGame.category.idle.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Idle</span>
-              <span *ngFor="let category of selectedGame.category.idle">{{
-                category
-              }}</span>
-            </div>
-
-            <div
-              *ngIf="
+                selectedGame.category.idle.length > 0 &&
                 selectedGame.category.puzzle &&
-                selectedGame.category.puzzle.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Puzzle</span>
-              <span *ngFor="let category of selectedGame.category.puzzle">{{
-                category
-              }}</span>
-            </div>
-
-            <div
-              *ngIf="
+                selectedGame.category.puzzle.length > 0 &&
                 selectedGame.category.rolePlaying &&
-                selectedGame.category.rolePlaying.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Role Playing</span>
-              <span
-                *ngFor="let category of selectedGame.category.rolePlaying"
-                >{{ category }}</span
-              >
-            </div>
-
-            <div
-              *ngIf="
+                selectedGame.category.rolePlaying.length > 0 &&
                 selectedGame.category.simulation &&
-                selectedGame.category.simulation.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Simulation</span>
-              <span *ngFor="let category of selectedGame.category.simulation">{{
-                category
-              }}</span>
-            </div>
-
-            <div
-              *ngIf="
+                selectedGame.category.simulation.length > 0 &&
                 selectedGame.category.sports &&
-                selectedGame.category.sports.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Sports</span>
-              <span *ngFor="let category of selectedGame.category.sports">{{
-                category
-              }}</span>
-            </div>
-
-            <div
-              *ngIf="
+                selectedGame.category.sports.length > 0 &&
                 selectedGame.category.strategy &&
                 selectedGame.category.strategy.length > 0
-              "
-              class="d-flex-column pr-5"
-            >
-              <span class="variable-name">Strategy</span>
-              <span *ngFor="let category of selectedGame.category.strategy">{{
-                category
-              }}</span>
-            </div>
-          </div>
+              )
+            "
+          >
+            <span class="pb-1">
+              <i>No Category inserted</i>
+            </span>
+          </ng-container>
         </div>
 
-        <div
-          *ngIf="selectedGame.description"
-          class="description-class d-flex-column mb-3"
-        >
+        <div class="description-class d-flex-column mb-3">
           <span class="title-name pb-2">Description</span>
-          <div class="d-flex">
-            <span>{{ selectedGame.description }}</span>
-          </div>
+          <ng-container *ngIf="selectedGame.description">
+            <div class="d-flex">
+              <span>{{ selectedGame.description }}</span>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!selectedGame.description">
+            <span class="pb-1">
+              <i>No Description inserted</i>
+            </span>
+          </ng-container>
         </div>
       </div>
     </div>

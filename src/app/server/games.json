@@ -194,14 +194,24 @@
       ]
     },
     {
-      "id": 1679,
-      "name": "Prova",
-      "description": "",
+      "id": 1362,
+      "name": "Run Marco",
+      "description": "Pour apprendre la logique du code aux plus jeunes Run Marco est une application ludique gratuite accessible sur Android, iPad et navigateur qui consiste à emmener un personnage d’un point à un autre en lui donnant les instructions pour y arriver. Le graphisme est très attractif et le tutoriel intégré dans les premiers niveaux permet une prise en main facile. Une version gratuite propose des niveaux progressifs qui intègrent les notions de variables, de balises, etc.\n\nNotre personnage Marco va devoir parcourir la jungle et récolter des reliques archéologiques. Il faudra, pour le faire évoluer, lui donner des instructions que le joueur devra choisir dans une série d’actions mise à sa disposition : le faire marcher, sauter, tourner, etc… L’outil est en pleine évolution et prévoit d’autres scènes dont un temple et une surprise.\n\nPlus le joueur progressera, plus sera complexe le niveau dans lequel il devra améliorer et simplifier le code et éviter ainsi les actions répétitives qui réduira le nombre de lignes de code. Les niveaux restent toutefois assez simples pour les plus jeunes et leur permettre d’aborder les bases.",
       "authors": [],
       "gameplay": "Game Based",
-      "purpose": [],
-      "scope": [],
-      "platform": [],
+      "purpose": [
+        "Educative Message Broadcasting",
+        "Training"
+      ],
+      "scope": [
+        "Education"
+      ],
+      "platform": [
+        "iPad",
+        "iPhone / iPod Touch",
+        "Mobile (Android)",
+        "PC (Windows)"
+      ],
       "category": {
         "actionAdventure": [],
         "actionGames": [],
@@ -213,59 +223,12 @@
         "sports": [],
         "strategy": []
       },
-      "audience": [],
-      "img": "",
-      "pegi": "PEGi 3",
-      "pegiDescriptors": []
-    },
-    {
-      "id": 1715,
-      "name": "Prova",
-      "description": "",
-      "authors": [],
-      "gameplay": "Game Based",
-      "purpose": [],
-      "scope": [],
-      "platform": [],
-      "category": {
-        "actionAdventure": [],
-        "actionGames": [],
-        "adventure": [],
-        "idle": [],
-        "puzzle": [],
-        "rolePlaying": [],
-        "simulation": [],
-        "sports": [],
-        "strategy": []
-      },
-      "audience": [],
-      "img": "",
-      "pegi": "PEGi 3",
-      "pegiDescriptors": []
-    },
-    {
-      "id": 1889,
-      "name": "aaa",
-      "description": "",
-      "authors": [],
-      "gameplay": "Game Based",
-      "purpose": [],
-      "scope": [],
-      "platform": [],
-      "category": {
-        "actionAdventure": [],
-        "actionGames": [],
-        "adventure": [],
-        "idle": [],
-        "puzzle": [],
-        "rolePlaying": [],
-        "simulation": [],
-        "sports": [],
-        "strategy": []
-      },
-      "audience": [],
-      "img": "",
-      "pegi": "PEGi 3",
+      "audience": [
+        "8 to 11 years old",
+        "General Public"
+      ],
+      "img": "http://www.gameclassification.com/files/games/26814_run-marcocopie(1).jpg",
+      "pegi": "PEGi 7",
       "pegiDescriptors": []
     }
   ]
