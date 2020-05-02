@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GamesDto } from './games';
-import { find, map, tap } from 'rxjs/operators';
+import { find, map, tap, mergeAll, mergeMap, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -22,8 +22,11 @@ export class GamesApiService {
   getById(id) {
     return this.getAll().pipe(
       find((games: Array<any>) => games.find(g => g.id === id)),
-      map(g => g[0])
-    )
+      mergeMap((games: Array<any>) => {
+        return games;
+      }),
+      filter((output: GamesDto) => output.id === id)
+    );
   }
 
   create(game: GamesDto) {
