@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesDto, Gameplay, Scope, Audience, Pegi, AllPlatform, PegiDescriptor, Purpose, ActionAdventure, ActionGames, Adventure, Idle, Puzzle, RolePlaying, Simulation, Sports, Strategy } from '../games';
 import { Router } from '@angular/router';
+import { GamesApiService } from '../games-api.service';
 
 @Component({
   selector: 'ag-game-form',
@@ -29,39 +30,40 @@ export class GameFormComponent implements OnInit {
 
   game: GamesDto = {
     id: 0,
-    name: '',//
-    description: '',//
+    name: '',
+    description: '',
     authors: [],
-    gameplay: Gameplay.GameBased,//
-    purpose: [],//
-    scope: [],//
-    platform: [],//
-    category: {//
-      actionAdventure: [],//
-      actionGames: [],//
-      adventure: [],//
-      idle: [],//
-      puzzle: [],//
-      rolePlaying: [],//
-      simulation: [],//
-      sports: [],//
-      strategy: []//
+    gameplay: Gameplay.GameBased,
+    purpose: [],
+    scope: [],
+    platform: [],
+    category: {
+      actionAdventure: [],
+      actionGames: [],
+      adventure: [],
+      idle: [],
+      puzzle: [],
+      rolePlaying: [],
+      simulation: [],
+      sports: [],
+      strategy: []
     },
-    audience: [],//
+    audience: [],
     img: '',
-    pegi: Pegi.PEGi3,//
-    pegiDescriptors: [],//
+    pegi: Pegi.PEGi3,
+    pegiDescriptors: [],
   };
 
-  constructor(private router: Router) { }
+  constructor(
+    private service: GamesApiService
+    ) { }
 
   ngOnInit() {
 
   }
 
-  onSubmit(e) {
-    console.log(e);
-    // this.router.navigate(['games', 'game-form']);
+  onSubmit(game: GamesDto) {
+    this.service.create(game)
  }
 
  selectedPegi(pegi: Pegi) {
