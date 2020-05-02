@@ -16,7 +16,7 @@
         autocomplete="off"
         placeholder="Start searching for a game"
       />
-      <a class="pl-2 mb-3" href="#" routerLinkActive="active">Advanced Search</a>
+      <a class="pl-2 mb-3" href="games/advanced-search" routerLinkActive="active">Advanced Search</a>
     </div>
     <div class="container-card">
       <ng-container *ngFor="let game of datasource | async | filter:searchText">
