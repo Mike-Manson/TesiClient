@@ -9,15 +9,45 @@
   margin: -1rem;
 }
 
-.form-control {
-  margin-bottom: 1.5rem;
-  padding: .275rem;
-  width: 25%;
-}
-
 .search-box {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+
+  .form-control {
+    margin-bottom: 1.5rem;
+    padding: .275rem;
+    width: 25%;
+  }
+}
+
+.pegi-class {
+  height: 7rem;
+}
+
+.pegi-descriptors-class {
+  height: 6rem;
+}
+
+.text {
+  font-size: 1.75rem;
+}
+
+.title-name {
+  font-size: 1.75rem;
+  font-weight: bolder;
+  margin-bottom: .5rem;
+}
+
+.form-filter {
+  width: 100%;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  width: max-content;
 }

@@ -16,10 +16,303 @@
         autocomplete="off"
         placeholder="Start searching for a game"
       />
-      <a class="pl-2 mb-3" href="games/advanced-search" routerLinkActive="active">Advanced Search</a>
+      <a
+        class="pl-2 mb-3 pointer"
+        routerLinkActive="active"
+        (click)="filterOpened = !filterOpened"
+        >Advanced Search</a
+      >
     </div>
+    <div *ngIf="filterOpened" class="h-align-center">
+      <form
+        class="pt-4 form-filter"
+        (ngSubmit)="filter(game)"
+        #gameForm="ngForm"
+      >
+        <div class="w-100">
+          <div class="d-flex">
+            <div class="form-group pr-4 flex-grow">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                [(ngModel)]="game.name"
+                name="name"
+                #name="ngModel"
+              />
+            </div>
+
+            <div class="form-group pr-4 flex-grow">
+              <label for="scopes">Scope</label>
+
+              <ng-select
+                [items]="scopes"
+                [multiple]="true"
+                [selectableGroup]="true"
+                [closeOnSelect]="false"
+                [(ngModel)]="game.scope"
+                name="scopes"
+              >
+              </ng-select>
+            </div>
+
+            <div class="form-group flex-grow">
+              <label for="audience">Audience</label>
+              <ng-select
+                [items]="audience"
+                [multiple]="true"
+                [selectableGroup]="true"
+                [closeOnSelect]="false"
+                [(ngModel)]="game.audience"
+                name="audience"
+              >
+              </ng-select>
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div class="form-group pr-4 flex-grow">
+              <label for="gameplay">Gameplay</label>
+
+              <ng-select
+                [items]="gameplays"
+                [selectableGroup]="true"
+                [closeOnSelect]="true"
+                [(ngModel)]="game.gameplay"
+                name="gameplays"
+              >
+              </ng-select>
+            </div>
+
+            <div class="form-group pr-4 flex-grow">
+              <label for="platform">Platform</label>
+              <ng-select
+                [items]="platforms"
+                [multiple]="true"
+                [selectableGroup]="true"
+                [closeOnSelect]="false"
+                [(ngModel)]="game.platform"
+                name="platforms"
+              >
+              </ng-select>
+            </div>
+
+            <div class="form-group flex-grow">
+              <label for="purpose">Purpose</label>
+              <ng-select
+                [items]="purposes"
+                [multiple]="true"
+                [selectableGroup]="true"
+                [closeOnSelect]="false"
+                [(ngModel)]="game.purpose"
+                name="purposes"
+              >
+              </ng-select>
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div class="form-group pr-4 flex-grow">
+              <label for="pegi">PEGi</label>
+              <ng-select
+                [items]="pegis"
+                [selectableGroup]="true"
+                [closeOnSelect]="true"
+                [(ngModel)]="game.pegi"
+                name="pegis"
+              >
+                <ng-template
+                  ng-option-tmp
+                  let-item="item"
+                  let-index="index"
+                  let-search="searchTerm"
+                >
+                  <img class="pegi-class pr-3" [src]="selectedPegi(item)" />
+                  <span class="text">{{ item }}</span>
+                </ng-template>
+              </ng-select>
+            </div>
+
+            <div class="form-group flex-grow">
+              <label for="pegiDescriptors">PEGi Descriptors</label>
+              <ng-select
+                [items]="descriptors"
+                [multiple]="true"
+                [selectableGroup]="true"
+                [closeOnSelect]="false"
+                [(ngModel)]="game.pegiDescriptors"
+                name="pegiDescriptors"
+              >
+                <ng-template
+                  ng-option-tmp
+                  let-item="item"
+                  let-index="index"
+                  let-search="searchTerm"
+                >
+                  <img
+                    class="pegi-descriptors-class pr-3"
+                    [src]="selectedPegiDescriptor(item)"
+                  />
+                  <span class="text">{{ item }}</span>
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+
+          <div class="d-flex-column pb-5">
+            <label for="category" class="title-name pt-3 pb-2">Category</label>
+
+            <div class="d-flex px-2">
+              <div class="form-group pr-4 flex-grow">
+                <label for="actionAdventure">Action Adventure</label>
+                <ng-select
+                  [items]="actionAdventure"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.actionAdventure"
+                  name="actionAdventure"
+                >
+                </ng-select>
+              </div>
+
+              <div class="form-group pr-4 flex-grow">
+                <label for="actionGames">Action Games</label>
+                <ng-select
+                  [items]="actionGames"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.actionGames"
+                  name="actionGames"
+                >
+                </ng-select>
+              </div>
+
+              <div class="form-group flex-grow">
+                <label for="adventure">Adventure</label>
+                <ng-select
+                  [items]="adventure"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.adventure"
+                  name="adventure"
+                >
+                </ng-select>
+              </div>
+            </div>
+
+            <div class="d-flex px-2">
+              <div class="form-group pr-4 flex-grow">
+                <label for="idle">Idle</label>
+                <ng-select
+                  [items]="idle"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.idle"
+                  name="idle"
+                >
+                </ng-select>
+              </div>
+
+              <div class="form-group pr-4 flex-grow">
+                <label for="puzzle">Puzzle</label>
+                <ng-select
+                  [items]="puzzle"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.puzzle"
+                  name="puzzle"
+                >
+                </ng-select>
+              </div>
+
+              <div class="form-group flex-grow">
+                <label for="rolePlaying">Role Playing</label>
+                <ng-select
+                  [items]="rolePlaying"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.rolePlaying"
+                  name="rolePlaying"
+                >
+                </ng-select>
+              </div>
+            </div>
+
+            <div class="d-flex px-2">
+              <div class="form-group pr-4 flex-grow">
+                <label for="simulation">Simulation</label>
+                <ng-select
+                  [items]="simulation"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.simulation"
+                  name="simulation"
+                >
+                </ng-select>
+              </div>
+
+              <div class="form-group pr-4 flex-grow">
+                <label for="sports">Sports</label>
+                <ng-select
+                  [items]="sports"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.sports"
+                  name="sports"
+                >
+                </ng-select>
+              </div>
+
+              <div class="form-group flex-grow">
+                <label for="strategy">Strategy</label>
+                <ng-select
+                  [items]="strategy"
+                  [multiple]="true"
+                  [selectableGroup]="true"
+                  [closeOnSelect]="false"
+                  [(ngModel)]="game.category.strategy"
+                  name="strategy"
+                >
+                </ng-select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group flex-grow">
+            <label for="description">Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              [(ngModel)]="game.description"
+              name="description"
+            >
+            </textarea>
+          </div>
+
+        </div>
+          <button
+            type="submit"
+            class="btn btn-success button"
+            [disabled]="!gameForm.form.valid"
+          >
+            Search
+          </button>
+      </form>
+    </div>
+
     <div class="container-card">
-      <ng-container *ngFor="let game of datasource | async | filter:searchText">
+      <ng-container
+        *ngFor="let game of datasource | async | filter: searchText"
+      >
         <ag-card [data]="game"></ag-card>
       </ng-container>
     </div>

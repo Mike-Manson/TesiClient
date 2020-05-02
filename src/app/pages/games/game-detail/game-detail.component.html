@@ -8,7 +8,7 @@
   <div class="page-content">
     <div class="size-100 game-detail-grid">
       <div class="img-area size-100">
-        <img class="img-class w-100" [src]="selectedGame.img" />
+        <img class="img-class w-100" [src]="selectedGame.img ? selectedGame.img : 'assets/no-image.jpg'" />
         <div class="pegi-area w-100">
           <img class="pegi-class" [src]="selectedPegi()" />
           <div class="descriptors-class">

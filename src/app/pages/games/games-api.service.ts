@@ -15,7 +15,7 @@ export class GamesApiService {
     private http: HttpClient
     ) {}
 
-  getAll() {
+  getAll(filterOptions?) {
     return this.http.get(`/server/games`);
   }
 
