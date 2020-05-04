@@ -33,4 +33,8 @@ export class GamesApiService {
       this.router.navigate(['games', res.id]);
     });
   }
+
+  search(game: Partial<GamesDto>) {
+    return this.http.post(`/server/search/games`, game);
+  }
 }

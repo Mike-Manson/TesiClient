@@ -22,6 +22,23 @@ server.post('/api/server/games', (req, res) => {
   }
 });
 
+server.post('/api/server/search/games', (req, res) => {
+  if (req.method === 'POST') {
+      if (req.body) {
+        let results = db.games.filter(game => {
+          return game.name.toLowerCase().includes(req.body['name'].toLowerCase());
+        });
+        console.log(results);
+        res.status(200).jsonp(results);
+      } else {
+        res.status(400).jsonp({
+          error: "Bad request"
+        });
+      }
+  }
+});
+
+
 server.get('/api/server/game', (req, res) => {
   if (req.method === 'GET') {
     let id = req.query['id'];

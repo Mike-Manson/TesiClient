@@ -74,7 +74,7 @@ export class GamesComponent implements OnInit {
   }
 
   filter(game) {
-    console.log(game);
+    this.datasource = this.service.search(game);
     // this.datasource = this.service.getAll(game)
   }
 
