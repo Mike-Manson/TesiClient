@@ -20,13 +20,7 @@ export class GamesApiService {
   }
 
   getById(id) {
-    return this.getAll().pipe(
-      find((games: Array<any>) => games.find(g => g.id === id)),
-      mergeMap((games: Array<any>) => {
-        return games;
-      }),
-      filter((output: GamesDto) => output.id === id)
-    );
+    return this.http.get(`/server/game?id=${id}`);
   }
 
   create(game: GamesDto) {

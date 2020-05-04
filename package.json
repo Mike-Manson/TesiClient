@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --aot --prod",
-    "api": "json-server src/app/server/games.json --routes src/app/server/routes.json --no-cors=true --delay 1000"
+    "api": "node src/app/server/index.js"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +32,7 @@
     "express": "^4.17.1",
     "guid-typescript": "^1.0.9",
     "json-server": "^0.16.1",
+    "lodash": "^4.17.15",
     "ng2-search-filter": "^0.5.1",
     "path": "^0.12.7",
     "rxjs": "~6.5.4",

@@ -1,0 +1,63 @@
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('./games.json');
+const middlewares = jsonServer.defaults({noCors: true});
+const port = process.env.PORT || 3000;
+var db = require('./games.json');
+const _ = require('lodash')
+
+server.use(jsonServer.bodyParser);
+server.use(middlewares);
+
+server.post('/api/server/games', (req, res) => {
+  if (req.method === 'POST') {
+      if (req.body) {
+        res.status(201).jsonp(req.body);
+        db.games.push(req.body);
+      } else {
+        res.status(400).jsonp({
+          error: "Bad id"
+        });
+      }
+  }
+});
+
+server.get('/api/server/game', (req, res) => {
+  if (req.method === 'GET') {
+    let id = req.query['id'];
+    if (id != null && id >= 0) {
+      let result = db.games.find(game => {
+        return game.id == id;
+      })
+
+      if (result) {
+        let {id, ...game} = result;
+        res.status(200).jsonp(game);
+      } else {
+        res.status(400).jsonp({
+          error: "Bad id"
+        });
+      }
+    } else {
+      res.status(400).jsonp({
+        error: "No valid id"
+      });
+    }
+  }
+});
+
+server.get('/api/server/games', (req, res) => {
+  if (req.method === 'GET') {
+    let result = db.games;
+    if (result) {
+      res.status(200).jsonp(result);
+    } else {
+      res.status(400).jsonp({
+        error: "Bad request"
+      });
+    }
+  }
+});
+
+server.use(router);
+server.listen(port);
