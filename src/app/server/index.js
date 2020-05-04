@@ -1,13 +1,23 @@
 const jsonServer = require('json-server');
+const path = require('path');
+var db = require('./games.json');
+const _ = require('lodash');
+
 const server = jsonServer.create();
 const router = jsonServer.router('./games.json');
-const middlewares = jsonServer.defaults({noCors: true});
+const middlewares = jsonServer.defaults({noCors: true, static: path.join(__dirname, './../../../dist/tesiProject/index.html')});
 const port = process.env.PORT || 3000;
-var db = require('./games.json');
-const _ = require('lodash')
 
 server.use(jsonServer.bodyParser);
 server.use(middlewares);
+
+server.get('/*', (req, res, next) => {
+  if (!req.originalUrl.includes('/api/server')) {
+    res.sendFile(path.join(__dirname, './../../../dist/tesiProject/index.html'));
+  } else {
+    next();
+  }
+});
 
 server.post('/api/server/games', (req, res) => {
   if (req.method === 'POST') {
