@@ -16,11 +16,11 @@ export class GamesApiService {
     ) {}
 
   getAll(filterOptions?) {
-    return this.http.get(`/server/games`);
+    return this.http.get(`api/server/games`);
   }
 
   getById(id) {
-    return this.http.get(`/server/game?id=${id}`);
+    return this.http.get(`api/server/game?id=${id}`);
   }
 
   create(game: GamesDto) {
@@ -29,12 +29,12 @@ export class GamesApiService {
       id: Math.floor(Math.random() * 1000 + 1000)
     }
 
-    this.http.post(`/server/games`, g).subscribe((res: GamesDto) => {
+    this.http.post(`api/server/games`, g).subscribe((res: GamesDto) => {
       this.router.navigate(['games', res.id]);
     });
   }
 
   search(game: Partial<GamesDto>) {
-    return this.http.post(`/server/search/games`, game);
+    return this.http.post(`api/server/search/games`, game);
   }
 }

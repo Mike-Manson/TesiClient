@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod --base-href tesiProject",
+    "postinstall": "ng build --aot --prod",
     "api": "node src/app/server/index.js"
   },
   "private": true,

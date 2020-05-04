@@ -5,15 +5,22 @@ const _ = require('lodash');
 
 const server = jsonServer.create();
 const router = jsonServer.router('./games.json');
-const middlewares = jsonServer.defaults({noCors: true, static: path.join(__dirname, './../../../dist/tesiProject/index.html')});
+const middlewares = jsonServer.defaults({noCors: true, static: path.join(__dirname, './../../../dist')});
 const port = process.env.PORT || 3000;
 
 server.use(jsonServer.bodyParser);
 server.use(middlewares);
 
+server.use((req, res, next) => {
+  res.header('X-Content-Type-Options', 'nosniff');
+  next();
+})
+
 server.get('/*', (req, res, next) => {
-  if (!req.originalUrl.includes('/api/server')) {
-    res.sendFile(path.join(__dirname, './../../../dist/tesiProject/index.html'));
+  console.log(req.originalUrl);
+  console.log(path.join(__dirname, './../../../dist/', req.originalUrl === '/' ? 'index.html' : req.originalUrl));
+  if (!req.originalUrl.includes('api/server')) {
+    res.sendFile(path.join(__dirname, './../../../dist/', req.originalUrl === '/' ? 'index.html' : req.originalUrl));
   } else {
     next();
   }
